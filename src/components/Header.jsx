@@ -1,8 +1,11 @@
+import './Header.css';
+import logo from '../assets/logo.png';
+
 function Header() {
   return (
-    <header>
-      <img />
-      <h1>Getting Started with Cypress</h1>
+    <header className="main-header">
+      <img src={logo} alt="A list" />
+      <h1>React Tasks</h1>
     </header>
   );
 }
