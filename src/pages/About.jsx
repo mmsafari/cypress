@@ -9,8 +9,8 @@ function AboutPage() {
           have created this demo to help you learn how to use Cypress.
         </p>
         <p>
-          Also follow us on our{' '}
-          <a href="https://youtube.com/c/academind">YouTube channel</a>.
+          Also follow me on my{' '}
+          <a href="https://github.com/mmsafari/">GitHub</a>.
         </p>
       <ContactForm />
     </>
