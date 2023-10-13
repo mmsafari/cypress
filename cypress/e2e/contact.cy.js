@@ -1,8 +1,17 @@
 /// <reference types="cypress"/>
 
 describe("contact form", () => {
-  it("should submit the form", () => {
+  before(()=> {
+    //Runs before all test, only once
+  })
+  beforeEach(()=> {
+    //Runs before every test
     cy.visit("/about");
+  })
+  it("should submit the form", () => {
+    cy.task('seedDatabase', 'filename.csv').then(returnValue => {
+      // ... use returnValue
+    })
     cy.get('[data-cy="contact-input-message"]').type("Hello world!");
     cy.get('[data-cy="contact-input-name"]').type("John Doe");
     cy.get('[data-cy="contact-btn-submit"]').then((el) => {
@@ -11,6 +20,7 @@ describe("contact form", () => {
     });
     cy.screenshot()
     cy.get('[data-cy="contact-input-email"]').type("test@example.com{enter}");
+    cy.submitForm()
     // cy.get('[data-cy="contact-btn-submit"]')
     //   .contains('Send Message')
     //   .should('not.have.attr', 'disabled');
@@ -22,7 +32,6 @@ describe("contact form", () => {
   });
 
   it("should validate the form input", () => {
-    cy.visit("/about");
     cy.get('[data-cy="contact-btn-submit"]').click();
     cy.get('[data-cy="contact-btn-submit"]').then((el) => {
       expect(el).to.not.have.attr("disabled");
